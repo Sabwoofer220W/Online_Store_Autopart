@@ -19,23 +19,23 @@
 
 Дизайн:  
 Дизайн:  
-* Главная страница *  
+*Главная страница*  
 <p align="center">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex1.png" width="1000">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex4.png" width="1000">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex5.png" width="1000">
 </p>  
-* Страницы сортировок *  
+*Страницы сортировок*  
 <p align="center">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex2.png" width="1000">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex3.png" width="1000">
 </p>  
-* Каталоги *  
+*Каталоги*  
 <p align="center">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex7.png" width="1000">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex10.png" width="1000">
 </p>  
-* Поиск и корзина *  
+*Поиск и корзина*  
 <p align="center">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex9.png" width="1000">
 <img src="https://github.com/Sabwoofer220W/Online_Store_Autopart/blob/main/example/ex8.png" width="1000">
