@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<meta charset="UTF-8">
+		<title>Nurmotors</title>
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleMain.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleHeader.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleContent.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleAdaptive.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/left-nav-style.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/MainCatalogCSS/MainCatalogCSS.css">
+
+		<link rel="icon" href="../public/img/favicon.ico" type="image/x-icon">
+
+
+			<meta name="description" content="RadioSAB">
+		</head>
+
+		<body>
+			<div class="body">
+	<!--============================================================================
+	//============================================================================-->
+	<script src="../public/scripts/navbarScroll.js"></script>
+		<%- include('blocks/navbar.ejs'); %>
+    <%- include('blocks/header.ejs'); %>
+    <div class="Content">
+      <p class="Content_title"><b>Каталог запчастей</b></p>
+      <hr align="left" width="100%" size="3" color="#337ab7">
+			<div class="Content_form">
+				<form action="/BrandCatalogOne.ejs" method="GET" class="Content_form_form">
+					<a><b>Сортировать по:</b></a>
+					<div>
+					<input onClick="this.checked=!this.isChecked;" onMouseDown="this.isChecked=this.checked;" id="priseIncreasing" type="radio" name="Sort" value="ЦенаВоз"> Цена↑
+					<input onClick="this.checked=!this.isChecked;" onMouseDown="this.isChecked=this.checked;" id="priseDecreasing" type="radio" name="Sort" value="ЦенаУбыв"> Цена↓
+					<input style="display:none;" id="Mark" type="text" name="Mark" value="">
+				</div>
+				<div>
+					<span><b>Производитель:</b></span>
+					<select id="formManufacturer" name="Manufacturer">
+					<option>Все</option>
+
+					</select>
+					</div>
+
+					<%
+					var MarkArr =[];
+					var MarkArrId = [];
+					//Нахождение нужной марки и записывание ее моделей в переменную MarkArr
+						for (var i = 0; i <  MarkAuto.length; i++) {
+							if (MarkAuto[i].brandAuto == query.MarkOneAuto || MarkAuto[i].brandAuto == query.Mark){
+								MarkArr = MarkAuto[i].modelAuto;
+								break;
+							}
+						}
+						//console.log('------------------------'+JSON.stringify(MarkArr));
+							%>
+
+					<span id=""><b>Модель:</b></span>
+					<select id="" name="ModelAutoForm">
+						<option>Все</option>
+						<%
+						//Вывод всех моделей в select для выборки, и добавление в массив моделей
+						for (var i = 0; i <  MarkArr.length; i++) {
+							MarkArrId.push(MarkArr[i]);
+							%>
+								<option><%= MarkArr[i].Model %></option>
+						<%}
+						console.log('------------------------------------');
+						console.log(MarkArrId);
+						%>
+					</select>
+
+					<button type="submit" >Сортировать</button>
+				</form>
+			</div>
+      <div class="Content_Product">
+				<%
+				var ArrReceivingGoods;
+				var SrcImg;
+				var AllManufacturer=[];%>
+				<% if(query.MarkOneAuto != undefined){%>
+					<script>
+    			sessionStorage.setItem('Mark2', '<%- query.MarkOneAuto%>');
+  				</script>
+			<%	} %>
+			<script>
+			let Mark3 = document.querySelector('#Mark');
+			 Mark3.value = sessionStorage.getItem('Mark2');
+			 let Content_title = document.querySelector('.Content_title');
+			 Content_title.innerHTML = 'Каталог запчастей '+sessionStorage.getItem('Mark2');
+			</script>
+				<%for (var i = 0; i < ReceivingGoods.length; i++) {
+					AllManufacturer.push(ReceivingGoods[i].manufacturer);
+					if(ReceivingGoods[i].markAuto == query.MarkOneAuto ){
+
+						ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+						SrcImg = ArrReceivingGoods[5];%>
+						<div class="Content_categories_a">
+
+							 <div class="Content_categories_a_Article"><%= ReceivingGoods[i].Article %></div>
+							 <img class="Content_categories_a_img" src="../public/img/details/<%= SrcImg %>">
+							 <div class="Content_categories_a_nameTitle1"><%= ReceivingGoods[i].nameTitle %></div>
+							 <div class="Content_categories_a_price"><%= ReceivingGoods[i].price %>₽</div>
+							 <div class="Content_categories_a_nameTitle2"><b>Описание:</b><%= ReceivingGoods[i].description %></div>
+							 <div class="Content_categories_a_nameTitle2"><b>Производитель:</b><%= ReceivingGoods[i].manufacturer %></div>
+							 <div class="Content_categories_a_MMAuto"> <i><%= ReceivingGoods[i].markAuto %>/<%= ReceivingGoods[i].modelAuto %></i> </div>
+							 <a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].markAuto %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+							 <div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div></a>
+
+						</div>
+				<%	} else if ( ReceivingGoods[i].markAuto == query.Mark && query.Manufacturer == 'Все' && query.ModelAutoForm == 'Все') {
+					ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+					SrcImg = ArrReceivingGoods[5];
+					%>
+
+					<div class="Content_categories_a">
+
+						 <div class="Content_categories_a_Article"><%= ReceivingGoods[i].Article %></div>
+						 <img class="Content_categories_a_img" src="../public/img/details/<%= SrcImg %>">
+						 <div class="Content_categories_a_nameTitle1"><%= ReceivingGoods[i].nameTitle %></div>
+						 <div class="Content_categories_a_price"><%= ReceivingGoods[i].price %>₽</div>
+						 <div class="Content_categories_a_nameTitle2"><b>Описание:</b><%= ReceivingGoods[i].description %></div>
+						 <div class="Content_categories_a_nameTitle2"><b>Производитель:</b><%= ReceivingGoods[i].manufacturer %></div>
+						 <div class="Content_categories_a_MMAuto"> <i><%= ReceivingGoods[i].markAuto %>/<%= ReceivingGoods[i].modelAuto %></i> </div>
+						 <a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].markAuto %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+						 <div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div></a>
+
+					</div>
+
+				<%} else if(ReceivingGoods[i].markAuto == query.Mark && query.Manufacturer == ReceivingGoods[i].manufacturer && query.ModelAutoForm == 'Все'){
+
+					ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+					SrcImg = ArrReceivingGoods[5];
+					%>
+					<div class="Content_categories_a">
+
+						 <div class="Content_categories_a_Article"><%= ReceivingGoods[i].Article %></div>
+						 <img class="Content_categories_a_img" src="../public/img/details/<%= SrcImg %>">
+						 <div class="Content_categories_a_nameTitle1"><%= ReceivingGoods[i].nameTitle %></div>
+						 <div class="Content_categories_a_price"><%= ReceivingGoods[i].price %>₽</div>
+						 <div class="Content_categories_a_nameTitle2"><b>Описание:</b><%= ReceivingGoods[i].description %></div>
+						 <div class="Content_categories_a_nameTitle2"><b>Производитель:</b><%= ReceivingGoods[i].manufacturer %></div>
+						 <div class="Content_categories_a_MMAuto"> <i><%= ReceivingGoods[i].markAuto %>/<%= ReceivingGoods[i].modelAuto %></i> </div>
+						 <a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].markAuto %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+						 <div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div></a>
+
+					</div>
+
+			<%	} else if(ReceivingGoods[i].markAuto == query.Mark && query.Manufacturer == ReceivingGoods[i].manufacturer && query.ModelAutoForm == ReceivingGoods[i].modelAuto){
+				ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+				SrcImg = ArrReceivingGoods[5];
+				%>
+				<div class="Content_categories_a">
+
+					 <div class="Content_categories_a_Article"><%= ReceivingGoods[i].Article %></div>
+					 <img class="Content_categories_a_img" src="../public/img/details/<%= SrcImg %>">
+					 <div class="Content_categories_a_nameTitle1"><%= ReceivingGoods[i].nameTitle %></div>
+					 <div class="Content_categories_a_price"><%= ReceivingGoods[i].price %>₽</div>
+					 <div class="Content_categories_a_nameTitle2"><b>Описание:</b><%= ReceivingGoods[i].description %></div>
+					 <div class="Content_categories_a_nameTitle2"><b>Производитель:</b><%= ReceivingGoods[i].manufacturer %></div>
+					 <div class="Content_categories_a_MMAuto"> <i><%= ReceivingGoods[i].markAuto %>/<%= ReceivingGoods[i].modelAuto %></i> </div>
+					 <a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].markAuto %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+					<div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div></a>
+
+				</div>
+		<%	} else if(ReceivingGoods[i].markAuto == query.Mark && query.Manufacturer == 'Все' && query.ModelAutoForm == ReceivingGoods[i].modelAuto){
+			ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+			SrcImg = ArrReceivingGoods[5];
+				%>
+				<div class="Content_categories_a">
+
+					 <div class="Content_categories_a_Article"><%= ReceivingGoods[i].Article %></div>
+					 <img class="Content_categories_a_img" src="../public/img/details/<%= SrcImg %>">
+					 <div class="Content_categories_a_nameTitle1"><%= ReceivingGoods[i].nameTitle %></div>
+					 <div class="Content_categories_a_price"><%= ReceivingGoods[i].price %>₽</div>
+					 <div class="Content_categories_a_nameTitle2"><b>Описание:</b><%= ReceivingGoods[i].description %></div>
+					 <div class="Content_categories_a_nameTitle2"><b>Производитель:</b><%= ReceivingGoods[i].manufacturer %></div>
+					 <div class="Content_categories_a_MMAuto"> <i><%= ReceivingGoods[i].markAuto %>/<%= ReceivingGoods[i].modelAuto %></i> </div>
+					 <a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].markAuto %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+					 <div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div></a>
+
+				</div>
+			<%}
+
+			}
+
+			%>
+
+			</div>
+			<hr align="left" width="100%" size="3" color="#337ab7">
+      </div>
+    <%- include('blocks/footer.ejs'); %>
+  </div>
+
+
+	<script>
+
+	//===================================================================================
+
+var querystring = <%-JSON.stringify(query)%>
+
+	//===================================================================================
+
+var priseIncreasing = document.querySelector('#priseIncreasing');
+var priseDecreasing = document.querySelector('#priseDecreasing');
+
+if (priseIncreasing.value == querystring.Sort) {
+	priseIncreasing.checked = true;
+} else if(priseDecreasing.value == querystring.Sort){
+priseDecreasing.checked = true;
+}
+
+
+	//===================================================================================
+	var formManufacturer = document.querySelector('#formManufacturer');
+
+	var FunManufacturer = function(AllManufacturer) {
+	  function unique(arr) {
+	  let result = [];
+
+	  for (let str of arr) {
+	    if (!result.includes(str)) {
+	      result.push(str);
+	    }
+	  }
+
+	  return result;
+	}
+	let AllManufacturerMass = unique(AllManufacturer);
+	formManufacturer.innerHTML ='';
+	formManufacturer.innerHTML='<option>Все</option>';
+	  for (let i = 0; i < AllManufacturerMass.length; i++) {
+	  	let option2 = document.createElement('option');
+	   	option2.innerHTML = AllManufacturerMass[i]
+	   	formManufacturer.append(option2)
+
+	  }
+	}
+
+	FunManufacturer(<%- JSON.stringify(AllManufacturer) %>);
+	//===================================================================================
+	function displayBasket() {
+	let Content_categories_a_Button = document.querySelectorAll(".Content_categories_a_Button");
+
+	for (var i = 0; i < localStorage.length; i++) {
+
+		let key = localStorage.key(i);
+		for (var j = 0; j < Content_categories_a_Button.length; j++) {
+		if(key.slice(0, 2) == 'id'){
+			let localArr = localStorage.getItem(key).split('|');
+			if(Content_categories_a_Button[j].id == localArr[0]){
+				Content_categories_a_Button[j].style.backgroundColor = '#9c9c9c';
+			}
+
+		}
+		}
+
+	}
+	}
+	displayBasket();
+//===================================================================================
+</script>
+  </body>
+
+</html>

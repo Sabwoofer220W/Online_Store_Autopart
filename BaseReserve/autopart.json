@@ -1,0 +1,227 @@
+[{
+  "_id": {
+    "$oid": "621e075c0cde3e3eba036e40"
+  },
+  "brandAuto": "Acura",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075c0cde3e3eba036e41"
+  },
+  "brandAuto": "Audi",
+  "modelAuto": [
+    {
+      "Model": "A7",
+      "AutoParts": [
+        {
+          "$oid": "622713e31bbe47527af84cd8"
+        },
+        {
+          "$oid": "62288356704432fbe6fc6c12"
+        }
+      ]
+    },
+    {
+      "Model": "A5",
+      "AutoParts": []
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "621e075c0cde3e3eba036e42"
+  },
+  "brandAuto": "BMW",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075c0cde3e3eba036e43"
+  },
+  "brandAuto": "Chevrolet",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e44"
+  },
+  "brandAuto": "Chrysler",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e45"
+  },
+  "brandAuto": "Citroen",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e46"
+  },
+  "brandAuto": "Daewoo",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e47"
+  },
+  "brandAuto": "Fiat",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e48"
+  },
+  "brandAuto": "Ford",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e49"
+  },
+  "brandAuto": "Gaz",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e4a"
+  },
+  "brandAuto": "Honda",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e4b"
+  },
+  "brandAuto": "Hyundai",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e4c"
+  },
+  "brandAuto": "Infiniti",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e4d"
+  },
+  "brandAuto": "Jaguar",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e4e"
+  },
+  "brandAuto": "Jeep",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e4f"
+  },
+  "brandAuto": "Kadillak",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075d0cde3e3eba036e50"
+  },
+  "brandAuto": "KIA",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e51"
+  },
+  "brandAuto": "Lada",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e52"
+  },
+  "brandAuto": "Land-Rover",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e53"
+  },
+  "brandAuto": "Lexus",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e54"
+  },
+  "brandAuto": "Mazda",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e55"
+  },
+  "brandAuto": "Mercedes",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e56"
+  },
+  "brandAuto": "Mini",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e57"
+  },
+  "brandAuto": "Mitsubishi",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e58"
+  },
+  "brandAuto": "Nissan",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e59"
+  },
+  "brandAuto": "Opel",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e5a"
+  },
+  "brandAuto": "Peugeot",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e5b"
+  },
+  "brandAuto": "Pontiac",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e5c"
+  },
+  "brandAuto": "Renault",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075e0cde3e3eba036e5d"
+  },
+  "brandAuto": "Skoda",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075f0cde3e3eba036e5e"
+  },
+  "brandAuto": "Subaru",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075f0cde3e3eba036e5f"
+  },
+  "brandAuto": "Suzuki",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075f0cde3e3eba036e60"
+  },
+  "brandAuto": "Toyota",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075f0cde3e3eba036e61"
+  },
+  "brandAuto": "Volkswagen",
+  "modelAuto": {}
+},{
+  "_id": {
+    "$oid": "621e075f0cde3e3eba036e62"
+  },
+  "brandAuto": "Volvo",
+  "modelAuto": {}
+}]

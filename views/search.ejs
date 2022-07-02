@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<meta charset="UTF-8">
+		<title>Nurmotors</title>
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleMain.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleHeader.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleContent.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleAdaptive.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/left-nav-style.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/SearchCSS/Search.css">
+
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+		<script src="../public/scripts/MenuView.js"></script>
+			<meta name="description" content="RadioSAB">
+		</head>
+		<body>
+			<div class="body">
+        <script src="../public/scripts/navbarScroll.js"></script>
+				<%- include('blocks/navbar.ejs'); %>
+
+<!--============================================================================-->
+				<%- include('blocks/header.ejs'); %>
+
+<!--===================================================================================-->
+        <div class="Content">
+					<%
+					if (query.TextSearch) {%>
+						<p class="Content_title"><b>По VIN "<%= query.TextSearch  %>" <span id="Content_title2">найдено</span></b></p>
+					<% for (var i = 0; i < ReceivingGoods.length; i++) {
+						if (ReceivingGoods[i].Article == query.TextSearch) {
+							ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+		 				 SrcImg = ArrReceivingGoods[5];
+						%>
+					<div class="Content_Product_flex">
+					<div class="Content_Product">
+						<img class="Content_Product_img" src="../public/img/details/<%=SrcImg%>" alt="VIN">
+
+							<div class ="Content_Product_textAdaptive">
+								<p class="Content_Product_description"><b>Описание: </b> <%= ReceivingGoods[i].description %> </p>
+								<br>
+								<div class="Content_Product_textAdaptive_p">
+								<p><b>Тип: </b> <%= ReceivingGoods[i].type %> </p>
+								<p><b>Артикул: </b> <%= ReceivingGoods[i].Article %> </p>
+								<p><b>Марка и модель: </b> <%= ReceivingGoods[i].markAuto %>/<%= ReceivingGoods[i].modelAuto%> </p>
+								<p><b>Производитель: </b> <%= ReceivingGoods[i].manufacturer %> </p>
+								<p class="Content_Product_Price"><b>Цена: </b><%= ReceivingGoods[i].price %>₽</p>
+							</div>
+								<br>
+								<a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].ReceivingGoods %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+								<div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div>	</a>
+							</div>
+
+
+				</div>
+				</div>
+				<%
+				}
+			}
+		} else if (query.SearchNameTitle) { %>
+				<p class="Content_title"><b>По наименованию "<%= query.SearchNameTitle  %>" <span id="Content_title2">найдено</span></b></p>
+	<%	for (var i = 0; i < ReceivingGoods.length; i++) {
+			let nameTitle = (ReceivingGoods[i].nameTitle).toUpperCase();
+			let TextSearch = (query.SearchNameTitle).toUpperCase()
+			if (nameTitle == TextSearch) {
+				ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+			 SrcImg = ArrReceivingGoods[5];
+				%>
+
+				<div class="Content_Product_flex">
+				<div class="Content_Product">
+					<img class="Content_Product_img" src="../public/img/details/<%=SrcImg%>" alt="VIN">
+
+						<div>
+							<p class="Content_Product_description"><b>Описание: </b> <%= ReceivingGoods[i].description %> </p>
+							<br>
+							<p><b>Тип: </b> <%= ReceivingGoods[i].type %> </p>
+							<p><b>Артикул: </b> <%= ReceivingGoods[i].Article %> </p>
+							<p><b>Марка и модель: </b> <%= ReceivingGoods[i].MarkAuto %>/<%= ReceivingGoods[i].modelAuto%> </p>
+							<p><b>Производитель: </b> <%= ReceivingGoods[i].manufacturer %> </p>
+							<p class="Content_Product_Price"><b>Цена: </b><%= ReceivingGoods[i].price %>₽</p>
+							<br>
+							<a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].ReceivingGoods %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+							<div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div>	</a>
+						</div>
+
+
+			</div>
+			</div>
+
+			<% } else if (nameTitle.split(' ')[0] == TextSearch.split(' ')[0]) {
+				ArrReceivingGoods = ReceivingGoods[i].image.split('/');
+			 SrcImg = ArrReceivingGoods[5];
+			 	console.log('-=-=-=');
+			 %>
+
+			 <div class="Content_Product_flex">
+			 <div class="Content_Product">
+				 <img class="Content_Product_img" src="../public/img/details/<%=SrcImg%>" alt="VIN">
+
+					 <div>
+						 <p class="Content_Product_description"><b>Описание: </b> <%= ReceivingGoods[i].description %> </p>
+						 <br>
+						 <p><b>Тип: </b> <%= ReceivingGoods[i].type %> </p>
+						 <p><b>Артикул: </b> <%= ReceivingGoods[i].Article %> </p>
+						 <p><b>Марка и модель: </b> <%= ReceivingGoods[i].MarkAuto %>/<%= ReceivingGoods[i].modelAuto%> </p>
+						 <p><b>Производитель: </b> <%= ReceivingGoods[i].manufacturer %> </p>
+						 <p class="Content_Product_Price"><b>Цена: </b><%= ReceivingGoods[i].price %>₽</p>
+						 <br>
+						 <a style="cursor:pointer;" id="AddToBasket" onclick="localStorage.setItem('id<%=i%>','<%= ReceivingGoods[i]._id %>|<%= ReceivingGoods[i].nameTitle %>|<%= ReceivingGoods[i].type %>|<%= ReceivingGoods[i].Article %>|<%= ReceivingGoods[i].image %>|<%= ReceivingGoods[i].ReceivingGoods %>|<%= ReceivingGoods[i].modelAuto %>|<%= ReceivingGoods[i].price %>|<%= ReceivingGoods[i].description %>|<%= ReceivingGoods[i].manufacturer %>');displayBasket();">
+						 <div class="Content_categories_a_Button" id="<%= ReceivingGoods[i]._id %>"> <img class="Content_categories_a_Button_img" src="../public/img/svg/luggage.svg"></div>	</a>
+					 </div>
+
+
+		 </div>
+		 </div>
+
+			<%	}
+
+		}
+	}
+			%>
+
+			<div class="Content_ErrorVin">
+				<p class="Content_ErrorVin_title"> Может вы хотите найти товар по названию?</p>
+				<div class="Content_ErrorVin_input">
+					<form class="Content_ErrorVin_input_input" action="search.ejs" method="get">
+					    <div class="Content_ErrorVin_input_inputinput">
+					<input class="Content_ErrorVin_input_inputinput_search" name="SearchNameTitle" placeholder="">
+					    </div>
+					    <div class="Content_ErrorVin_input_input_magnifier" onclick="document.querySelector('.Content_ErrorVin_input_input').submit()">
+					<img src="../public/img/svg/search.svg">
+					    </div>
+					  </form>
+				 </div>
+			 </div>
+
+
+        </div>
+<!--===================================================================================-->
+      <%- include('blocks/footer.ejs'); %>
+      </div>
+			<script type="text/javascript">
+			function displayBasket() {
+			let Content_categories_a_Button = document.querySelectorAll(".Content_categories_a_Button");
+
+			for (var i = 0; i < localStorage.length; i++) {
+
+			  let key = localStorage.key(i);
+			  for (var j = 0; j < Content_categories_a_Button.length; j++) {
+			  if(key.slice(0, 2) == 'id'){
+			    let localArr = localStorage.getItem(key).split('|');
+			    if(Content_categories_a_Button[j].id == localArr[0]){
+			      Content_categories_a_Button[j].style.backgroundColor = '#9c9c9c';
+			    }
+
+			  }
+			  }
+
+			}
+			}
+
+			let Content_Product_flex = document.querySelectorAll(".Content_Product_flex");
+			let Content_ErrorVin = document.querySelector(".Content_ErrorVin");
+			if (Content_Product_flex.length == 0) {
+				document.getElementById("Content_title2").innerHTML = "ничего не найдено";
+				Content_ErrorVin.style.display = 'flex';
+			}
+
+			displayBasket();
+
+			let input= document.querySelector('.Content_ErrorVin_input_inputinput_search');
+			let SearchExamples = ['Свеча зажигания','Тормозная колодка','Моторное масло Sintec','Ремень ГРМ','Топливный фильтр'];
+
+			// Рандомное значение массива для вставки в поисковую сттроку
+			const random = (min, max) => {
+			  return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			// через какое то время вставлять новое значение
+			let timerId = setInterval(() => {
+			    input.placeholder = SearchExamples[random(0,4)]
+			}, 4000);
+
+
+
+		</script>
+          </body>
+
+          	</html>

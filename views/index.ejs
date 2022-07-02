@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<meta charset="UTF-8">
+		<title>Nurmotors</title>
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleMain.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleHeader.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleContent.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/left-nav-style.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/indexCSS/styleAdaptive.css">
+
+
+		<link rel="icon" href="../public/img/favicon.ico" type="image/x-icon">
+		<script src="../public/scripts/MenuView.js"></script>
+			<meta name="description" content="RadioSAB">
+		</head>
+
+		<body>
+			<div class="body">
+	<!--============================================================================
+	//============================================================================-->
+	<script src="../public/scripts/navbarScroll.js"></script>
+		<%- include('blocks/navbar.ejs'); %>
+
+	<!--============================================================================-->
+	<%- include('blocks/header.ejs'); %>
+
+<!--============================================================================
+//============================================================================-->
+<%- include('blocks/HeaderBottom.ejs'); %>
+
+	<!--============================================================================
+	//============================================================================-->
+	<div class="Content">
+		<p class="Content_title"><b>Новые поступления</b></p>
+		<div class="Content_hits">
+	<div class="Content_hits_product">
+		<%
+			var ArrReceivingGoods;
+		for (var i = 0; i < 5; i++) {
+			if (i != 4){
+			ArrReceivingGoods = StartWithNewOnes[i].image.split('/');
+			SrcImg = ArrReceivingGoods[5];
+			%>
+			<a class="Content_hits_product_block" href="MainCatalog.ejs">
+				<div>
+					<img width="160" height="160" src="../public/img/details/<%= SrcImg %>">
+				</div>
+				<div class="Content_hits_product_block_price">
+					<%= StartWithNewOnes[i].price %>₽
+				</div>
+				<div class="Content_hits_product_block_title">
+					 <%= StartWithNewOnes[i].nameTitle %>
+				</div>
+				</a>
+		<%	} else {
+			ArrReceivingGoods = StartWithNewOnes[i].image.split('/');
+			SrcImg = ArrReceivingGoods[5];
+			%>
+			</div>
+			<a class="Content_hits_product_block_big">
+				<div>
+					<img width="353" height="496" src="../public/img/details/<%= SrcImg %>">
+				</div>
+				<div class="Content_hits_product_block_price">
+					<%= StartWithNewOnes[i].price %>₽
+				</div>
+				<div class="Content_hits_product_block_title">
+					<%= StartWithNewOnes[i].nameTitle %>
+				</div>
+			</a>
+		<%}
+	}
+ 		%>
+
+
+<!------------------------------------------------------------------------------------->
+
+	<!------------------------------------------------------------------------------------->
+
+		</div>
+			<p class="Content_title"><b>Каталоги автозапчастей</b></p>
+			<hr align="left" width="100%" size="3" color="#337ab7" />
+			<div class="Content_Model">
+				<div class="Content_Model_Stamp">
+					<form id="myform" action="/BrandCatalogOne.ejs" method="GET">
+					<ul class="category-list clearfix">
+						<%for (var i = 0; i <  MarkAuto.length; i++) {%>
+							<li class="category-item"><input class="FormInput" name="MarkOneAuto" type="submit" value="<%= MarkAuto[i].brandAuto %>"></li>
+							<%} %>
+						</ul>
+				</form>
+				</div>
+
+				<div class="Content_Model_Stamp_Next">
+					<a href="BrandCatalog.ejs">
+					<img class="Content_Model_Stamp_Next_img" src="../public/img/ModelNext.png">
+					<div class="Content_Model_Stamp_Next_text"><b>Запчасти для технического обслуживания</b></div>
+					</a>
+				</div>
+
+			</div>
+		<p class="Content_title"><b>Сопутствующие товары</b></p>
+		<hr align="left" width="100%" size="3" color="#337ab7" />
+		<div class="Content_RelatedProducts">
+
+					<form id="Form1" action="/MainCatalogOne.ejs" method="GET" class="Content_RelatedProducts_Block">
+						<a onclick="document.querySelector('#Form1').submit()" class="Content_RelatedProducts_Block_a">
+				<b style="text-align:center">Масла и технические жидкости</b>
+				<img width="300" height="300" src="../public/img/RelatedProducts/Oil.png">
+				<input type="text" value="Жидкости" name="CategoryOne" style="display:none"></input>
+						</a>
+				</form>
+
+
+				<form id="Form2" action="/MainCatalogOne.ejs" method="GET" class="Content_RelatedProducts_Block">
+					<a onclick="document.querySelector('#Form2').submit()" class="Content_RelatedProducts_Block_a" >
+				<b>Электрооборудование</b>
+				<img width="300" height="300" src="../public/img/RelatedProducts/ak.png">
+				<input type="text" value="Электрооборудование" name="CategoryOne" style="display:none"></input>
+				</a>
+					</form>
+
+
+				<form id="Form3" action="/MainCatalogOne.ejs" method="GET" class="Content_RelatedProducts_Block">
+					<a onclick="document.querySelector('#Form3').submit()" class="Content_RelatedProducts_Block_a" >
+				<b>Экстерьер</b>
+				<img width="300" height="300" src="../public/img/RelatedProducts/Auto.png">
+				<input type="text" value="Экстерьер" name="CategoryOne" style="display:none"></input>
+				</a>
+				</form>
+
+		</div>
+	</div>
+	<!--============================================================================
+	//============================================================================-->
+	<%- include('blocks/footer.ejs'); %>
+</div>
+
+		</body>
+
+	</html>

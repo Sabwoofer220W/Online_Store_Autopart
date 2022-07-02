@@ -1,0 +1,59 @@
+<div class="Header">
+  <div id="ButtonAdaptiveHead" class="Header_AdaptiveHead">
+    <div>
+<!--<img class="Header_Top_ButMenu" src="img/svg/MobileMenu.svg">-->
+<div id="navAdap">
+<input type="checkbox" id="nav-toggle" hidden>
+<nav class="nav">
+  <label for="nav-toggle" class="nav-toggle" onclick></label>
+  <h2 class="logo">
+
+    </h2>
+    <ul>
+        <li><a href="autopart.ejs">Каталог запчастей</a>
+        <li><a href="BrandCatalog.ejs">Каталог ТО</a>
+        <li><a><form onclick="document.querySelector('#FormMenuAdaptive1').submit()" id="FormMenuAdaptive1" action="/MainCatalogOne.ejs" method="GET" > <input type="hidden" value="Жидкости" name="CategoryOne" ></input>
+          Масла и тех. жидкости </form></a>
+        <li><a><form onclick="document.querySelector('#FormMenuAdaptive2').submit()" id="FormMenuAdaptive2" action="/MainCatalogOne.ejs" method="GET" > <input type="hidden" value="Электрооборудование" name="CategoryOne" ></input>
+          Электрооборудование </form></a>
+        <li><a><form onclick="document.querySelector('#FormMenuAdaptive3').submit()" id="FormMenuAdaptive3" action="/MainCatalogOne.ejs" method="GET" > <input type="hidden" value="Экстерьер" name="CategoryOne" ></input>
+          Экстерьер </form></a>
+    </ul>
+</nav>
+</div>
+<a href="index.ejs"><img class="Header_Top_Logo" src="../public/img/nurmotors-logo.png"></a>
+    </div>
+    <div class="Header_AdaptiveHead_plug" >
+
+      </div>
+      <div>
+<img id="ButtonViewSerch" class="Header_Top_ButMenu" src="../public/img/svg/search.svg">
+<a href="basket.ejs">
+<img class="Header_Top_Tg_Logo" src="../public/img/svg/luggage.svg">
+</a>
+<a href="https://t.me/NurMotors_bot">
+<img class="Header_Top_Tg_Logo" src="../public/img/svg/telegram.svg">
+</a>
+  </div>
+  </div>
+
+  <div id="ButtonAdaptiveSerch" class="Header_AdaptiveSerch">
+    <div>
+<img id="ButtonBack" class="Header_Top_ButMenu" src="../public/img/svg/back.svg">
+    </div>
+
+      <form id="FormMenu5" action="/search.ejs" method="GET" class="Header_Top_ButMenu_AdaptiveInput">
+<input class="Header_Top_Serch_Input" name="TextSearch" style="color:black" placeholder="Поиск запчасти по VIN" id="inputSearch2" />
+  </form>
+
+    <div class="Header_Top_ButMenu_Adaptive" onclick="
+    if (document.querySelector('#inputSearch2').value != '') {
+    document.querySelector('#FormMenu5').submit()
+    }
+    ">
+<img src="../public/img/svg/search.svg">
+    </div>
+  </div>
+
+
+</div>

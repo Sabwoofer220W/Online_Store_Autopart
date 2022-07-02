@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "6256edc94a3eee08996019cb"
+  },
+  "nameTitle": "Свеча зажигания SILKR8A-S NGK",
+  "type": "Свеча зажигания",
+  "Article": "12290RWCA01",
+  "image": "../Диплом/public/img/details/AQADBLgxGyflsEp9.jpg",
+  "markAuto": "Acura",
+  "modelAuto": "RDX",
+  "price": "3400.00",
+  "description": "Свеча зажигания SILKR8A-S NGK",
+  "category": "Электрооборудование",
+  "manufacturer": "Япония"
+},{
+  "_id": {
+    "$oid": "6256f4c04a3eee08996019cc"
+  },
+  "nameTitle": "Фильтр воздушный",
+  "type": "Воздушный фильтр",
+  "Article": "17220R8AA01",
+  "image": "../Диплом/public/img/details/AQADCbgxGyflsEp9.jpg",
+  "markAuto": "Acura",
+  "modelAuto": "RDX",
+  "price": "2 595.00",
+  "description": "Фильтр воздушный",
+  "category": "Двигатель",
+  "manufacturer": "Китай"
+},{
+  "_id": {
+    "$oid": "6256f7bd4a3eee08996019cd"
+  },
+  "nameTitle": "Фильтр топливный",
+  "type": "Фильтр топливный",
+  "Article": "17048T0A000",
+  "image": "../Диплом/public/img/details/AQADErgxGyflsEp9.jpg",
+  "markAuto": "Acura",
+  "modelAuto": "RDX",
+  "price": "13 660.00",
+  "description": "Фильтр топливный",
+  "category": "Двигатель",
+  "manufacturer": "Япония"
+},{
+  "_id": {
+    "$oid": "6256fa7f4a3eee08996019ce"
+  },
+  "nameTitle": "Уплотнитель лобового стекла",
+  "type": "Уплотнитель",
+  "Article": "73126SYY000",
+  "image": "../Диплом/public/img/details/AQADFrgxGyflsEp9.jpg",
+  "markAuto": "Acura",
+  "modelAuto": "RDX",
+  "price": "320.00",
+  "description": "Уплотнитель лобового стекла 73126SYY000",
+  "category": "Экстерьер",
+  "manufacturer": "Япония"
+},{
+  "_id": {
+    "$oid": "6256fc064a3eee08996019cf"
+  },
+  "nameTitle": "Подшипник ступицы задний",
+  "type": "Подшипник",
+  "Article": "42200T0A951",
+  "image": "../Диплом/public/img/details/AQADGrgxGyflsEp9.jpg",
+  "markAuto": "Acura",
+  "modelAuto": "RDX",
+  "price": "20410.00",
+  "description": "Подшипник ступицы задний NTN 42200T0A951",
+  "category": "Подвеска",
+  "manufacturer": "Япония"
+}]

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<meta charset="UTF-8">
+		<title>Nurmotors</title>
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleMain.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleHeader.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleContent.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleAdaptive.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/left-nav-style.css">
+
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+		<script src="../public/scripts/MenuView.js"></script>
+			<meta name="description" content="RadioSAB">
+		</head>
+		<body>
+			<div class="body">
+        <script src="../public/scripts/navbarScroll.js"></script>
+				<%- include('blocks/navbar.ejs'); %>
+
+      	<!--============================================================================-->
+				<%- include('blocks/header.ejs'); %>
+
+<!--===================================================================================-->
+        <div class="Content">
+          <p class="Content_title"><b>Каталог запчастей</b></p>
+          <hr align="left" width="100%" size="3" color="#337ab7">
+					<div class="Content_categories">
+
+
+						<a class="Content_categories_a" href="MainCatalog.ejs">
+							<img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/All.jpg">
+							<div class="Content_categories_a_text"><b>Все запчасти</b></div>
+						</a>
+
+
+					<form id="Form1" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+						<a onclick="document.querySelector('#Form1').submit()">
+							<img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/motor.jpg">
+							<div class="Content_categories_a_text"><b>Двигатель</b></div>
+							<input type="text" value="Двигатель" name="CategoryOne" style="display:none"></input>
+						</a>
+					</form>
+
+					<form id="Form2" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+						<a onclick="document.querySelector('#Form2').submit()">
+							<img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/pendant.jpg">
+							<div class="Content_categories_a_text"><b>Подвеска</b></div>
+							<input type="text" value="Подвеска" name="CategoryOne" style="display:none"></input>
+						</a>
+						</form>
+
+							<form id="Form3" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+						<a onclick="document.querySelector('#Form3').submit()">
+							<img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/brakes.jpg">
+							<div class="Content_categories_a_text"><b>Тормоза</b></div>
+							<input type="text" value="Тормоза" name="CategoryOne" style="display:none"></input>
+						</a>
+						</form>
+
+							<form id="Form4" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+						<a onclick="document.querySelector('#Form4').submit()">
+							<img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/exhaust.png">
+							<div class="Content_categories_a_text"><b>Выхлоп</b></div>
+							<input type="text" value="Выхлоп" name="CategoryOne" style="display:none"></input>
+						</a>
+						</form>
+
+							<form id="Form5" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+						<a onclick="document.querySelector('#Form5').submit()">
+						 <img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/transmission.jpg">
+						 <div class="Content_categories_a_text"><b>Коробка передач</b></div>
+						 <input type="text" value="Коробка передач" name="CategoryOne" style="display:none"></input>
+					 </a>
+					 </form>
+
+					 	<form id="Form6" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+					 <a onclick="document.querySelector('#Form6').submit()">
+						<img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/Oil.jpg">
+						<div class="Content_categories_a_text"><b>Масла и технические жидкости</b></div>
+						<input type="text" value="Жидкости" name="CategoryOne" style="display:none"></input>
+					</a>
+					</form>
+
+						<form id="Form7" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+					<a onclick="document.querySelector('#Form7').submit()">
+					 <img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/ele.jpg">
+					 <div class="Content_categories_a_text"><b>Электрооборудование</b></div>
+					 <input type="text" value="Электрооборудование" name="CategoryOne" style="display:none"></input>
+				 </a>
+				 </form>
+
+				 	<form id="Form8" action="/MainCatalogOne.ejs" method="GET" class="Content_categories_a">
+				 <a onclick="document.querySelector('#Form8').submit()">
+					<img class="Content_categories_a_img" src="../public/img/SparePartsCatalog/exterior.png">
+					<div class="Content_categories_a_text"><b>Экстерьер</b></div>
+					<input type="text" value="Экстерьер" name="CategoryOne" style="display:none"></input>
+				</a>
+				</form>
+
+					</div>
+        </div>
+<!--===================================================================================-->
+      <%- include('blocks/footer.ejs'); %>
+      </div>
+      		</body>
+</html>

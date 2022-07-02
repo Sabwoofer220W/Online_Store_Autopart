@@ -1,0 +1,234 @@
+.Header{
+	background-color: #337ab7;
+  background: #222 url(../img/bg.png) repeat left top;
+	padding:0px;
+	display:grid;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
+#navbar {
+  background-color: #333;
+  background: #222 url(../img/bg.png) repeat left top;
+  position: fixed;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  top: 0;
+  height: 75px;
+  transition: top 0.3s;
+  display:grid;
+	grid-template-columns: 2fr 2fr 8fr 3fr 4fr;
+  z-index: 5;
+}
+
+.Header_Top{
+	display:grid;
+	grid-template-columns: 2fr 2fr 8fr 3fr 4fr;
+}
+
+.Header_Top_Logo{
+  padding: 15px;
+}
+
+.Header_Top_ButMenu{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.Header_Top_ButMenu:hover{
+  opacity: 0.8;
+}
+
+.Header_Top_ButMenu_Menu{
+  background: rgb(255, 255, 255);
+    box-shadow: rgb(108 72 0 / 20%) 0px 4px 30px;
+    display: none;
+    flex-direction: column;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    position: absolute;
+    width: 304px;
+    z-index: 1;
+    font-size:20px;
+    font-family: "GraphikLC",Helvetica,sans-serif;
+    border-radius: 2px 2px 2px 2px;
+    top:70px;
+    left:10%;
+		text-decoration: none;
+}
+
+.Header_Top_ButMenu_Menu a{
+padding: 10px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.Header_Top_ButMenu_Menu a:visited{
+color:black;
+}
+
+.Header_Top_ButMenu_Menu a:hover{
+background-color: #4682B4;
+color:white;
+}
+
+
+.Header_Top_Serch{
+  display:grid;
+  align-items: center;
+  padding-left: 13px;
+}
+
+.Header_Top_Serch_Input{
+  cursor: text;
+    height: 60%;
+    width: 70%;
+    font-family: "GraphikLC",Helvetica,sans-serif;
+    font-size: 18px;
+    min-width: 50%;
+		color:#d9d9d9;
+			width: 100%;
+			padding: 0;
+}
+
+.Header_Top_Serch_Button{
+background-color: #4682B4;
+color:white;
+height: 64%;
+font-size: 18px;
+padding-left: 20px;
+padding-right: 20px;
+display: flex;
+align-items: center;
+font-family: "GraphikLC",Helvetica,sans-serif;
+transition-timing-function:ease;
+transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.Header_Top_Serch_Button:hover{
+  opacity: 0.8;
+}
+
+.Header_Top_Tg{
+  display:grid;
+  align-items: center;
+  justify-items: start;
+
+  color:white;
+}
+.Header_Top_Tg_Logo{
+  width: 50px;
+  height: 50px;
+	padding-left:20px ;
+}
+
+.Header_Top_Tg_But{
+  display: flex;height: 100%;
+  align-items: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  font-family: "GraphikLC",Helvetica,sans-serif;
+	text-decoration: none;
+	color: white;
+
+}
+.Header_Top_Tg_But:hover{
+  opacity: 0.8;
+}
+
+.Header_Top_Basket{
+  display:grid;
+  color:white;
+  justify-content: start;
+}
+
+.Header_Middle{
+	display:grid;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  background-color: #337ab7;
+  color:white;
+  font-size:80px;
+  font-family: "GraphikLC",Helvetica,sans-serif;
+  justify-content: start;
+  align-items: center;
+}
+
+.Header_Bottom{
+	display:flex;
+  background-color: #337ab7;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  align-items: flex-end;
+}
+
+.Header_Bottom_icon{
+  width: 50px;
+  height: 50px;
+  padding-bottom: 20px;
+}
+
+.Header_Bottom_TextIcon{
+  display:flex;
+font-size:16px;
+color:white;
+padding-left:3px;
+padding-right: 3%;
+  font-family: "GraphikLC",Helvetica,sans-serif;
+  padding-bottom: 25px;
+}
+
+.Header_Bottom_Plate{
+  	background-color: #6495ED;
+    width: 28%;
+    height: 80%;
+    border-radius: 5px 5px 0 0;
+    display:flex;
+    margin-left: 15%;
+    transition-timing-function: ease;
+    transition-duration: 0.3s;
+    color:white;
+    font-family: "GraphikLC",Helvetica,sans-serif;
+    cursor: pointer;
+}
+
+.Header_Bottom_Plate:hover{
+  height: 90%;
+}
+
+.HeaderBottom{
+  display:grid;
+	grid-template-rows: 8fr 5fr
+}
+
+.Header_Bottom_Block{
+	display:grid;
+	grid-template-columns: 60px 120px;
+	justify-items: start;
+    align-items: end;
+}
+
+.Header_AdaptiveHead{
+	display: none;
+	align-items: center;
+}
+.Header_AdaptiveSerch{
+	display: none;
+	align-items: flex-start;
+}
+
+.Header_Top_ButMenu_Menu_Form{
+	padding: 10px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.Header_Top_ButMenu_Menu_Form:visited{
+	color:black;
+}
+.Header_Top_ButMenu_Menu_Form:hover{
+	background-color: #4682B4;
+	color:white;
+}

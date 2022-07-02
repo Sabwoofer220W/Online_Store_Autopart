@@ -1,0 +1,37 @@
+<div id="navbar">
+  <div style="display:grid;align-content: center;"> <a href="index.ejs"> <img class="Header_Top_Logo" src="../public/img/nurmotors-logo.png"> </a> </div>
+  <div style="display:grid;align-content: center;justify-content: end;justify-items: center">
+    <img class="Header_Top_ButMenu" src="../public/img/svg/MobileMenu.svg">
+    <div class="Header_Top_ButMenu_Menu">
+      <a href="autopart.ejs"><b>Каталог запчастей</b></a>
+      <a href="BrandCatalog.ejs">Каталог ТО</a>
+      <form onclick="document.querySelector('#FormMenu1').submit()" id="FormMenu1" action="/MainCatalogOne.ejs" method="GET" class="Header_Top_ButMenu_Menu_Form" ><input type="text" value="Жидкости" name="CategoryOne" style="display:none"></input>
+      <span>Масла и технические жидкости</span></form>
+      <form onclick="document.querySelector('#FormMenu2').submit()" id="FormMenu2" action="/MainCatalogOne.ejs" method="GET" class="Header_Top_ButMenu_Menu_Form" ><input type="text" value="Электрооборудование" name="CategoryOne" style="display:none"></input>
+      <span>Электрооборудование</span></form>
+      <form onclick="document.querySelector('#FormMenu3').submit()" id="FormMenu3" action="/MainCatalogOne.ejs" method="GET" class="Header_Top_ButMenu_Menu_Form" ><input type="text" value="Экстерьер" name="CategoryOne" style="display:none"></input>
+      <span>Экстерьер</span></form>
+    </div>
+  </div>
+  <div class="Header_Top_Serch">
+    <form id="FormMenu4" action="/search.ejs" method="GET"  style="display: flex;height: 100%;align-items: center; width: 100%;">
+      <input class="Header_Top_Serch_Input" name="TextSearch" id="inputSearch" value="Поиск запчасти по VIN" />
+      <div class="Header_Top_Serch_Button" id="FormMenu4Submit"><b>Найти</b></div>
+    </form>
+    <script src="../public/scripts/search.js"></script>
+    </div>
+  <div class="Header_Top_Tg">
+    <a class="Header_Top_Tg_But" href="https://t.me/NurMotors_bot" target="_blank">
+<img class="Header_Top_Tg_Logo" src="../public/img/svg/telegram.svg">
+<div style="padding-left:10px;font-size: 18px;"><b>Telegram</b></div>
+  </a>
+  </div>
+  <div class="Header_Top_Basket">
+    <div >
+      <a class="Header_Top_Tg_But" href="basket.ejs">
+    <img class="Header_Top_Tg_Logo" src="../public/img/svg/luggage.svg">
+    <div style="padding-left:10px;font-size: 18px; text-decoration: none; color:white;">Корзина</div>
+    </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<meta charset="UTF-8">
+		<title>Nurmotors</title>
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleMain.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleHeader.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleContent.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/left-nav-style.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/basket/basket.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleAdaptive.css">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<script src="../public/scripts/MenuView.js"></script>
+			<meta name="description" content="RadioSAB">
+		</head>
+		<body>
+			<div class="body">
+        <script src="../public/scripts/navbarScroll.js"></script>
+				<%- include('blocks/navbar.ejs'); %>
+
+<!--============================================================================-->
+				<%- include('blocks/header.ejs'); %>
+
+<!--===================================================================================-->
+        <div class="Content">
+          <p class="Content_title"><b>Товары добавленные в корзину</b></p>
+          <div style="display:flex;align-items: center;"> <b class="Content_product_1">1</b><span class="Content_product_span1">Добавленные товары:</span>  </div>
+            <div class="Content_product">
+							<p class="Content_product_basketempty"> Корзина пуста </p>
+						</div>
+            <!------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="FinalPrice">
+            <b>Итог:</b> 12000 руб.
+            </div>
+            <!------------------------------------------------------------------------------------------------------------------------------------->
+						<div id="BlockFillings">
+						</div>
+						<!------------------------------------------------------------------------------------------------------------------------------------->
+            <div id="BasketStady2">
+            <div style="display:flex;align-items: center;"> <b class="Content_product_1">2</b><span class="Content_product_span1">Персональные данные:</span>  </div>
+            <div style="display:flex;justify-content: center;">
+            <form id="Form2" action="/basket.ejs" method="GET" class="Content_FormCommunication">
+              <div style="display:flex;flex-direction: column;align-items: center;">
+              ФИО:
+              <input type="text" name="FIO" id="Form2Name" value="">
+            <p>  Как нам связаться с вами?</p>
+              </div>
+              <div style="display:flex;flex-direction: row;">
+                <p style="text-align:center;margin-right:20px;"><input type="radio" name="communication" onclick="this.checked=!this.isChecked;" onmousedown="this.isChecked=this.checked; inputСommunication.style.display = 'none';" id="inputCallMe" value="inputCallMe">Позвоните мне</p>
+                <p style="text-align:center;margin-right:20px;"><input type="radio" name="communication" onclick="this.checked=!this.isChecked;" onmousedown="this.isChecked=this.checked; inputСommunication.style.display = 'none';" id="inputMailMe" value="inputMailMe">Напишите на почту</p>
+              	<p style="text-align:center;"><input type="radio" name="communication" onclick="this.checked=!this.isChecked;" onmousedown="this.isChecked=this.checked; inputСommunication.style.display = 'none';" id="inputTelegramMe" value="inputTelegramMe">Напишите в телеграм</p>
+                </div>
+								<div id="inputСommunication"><b>Введите</b><input style="color: #969696;" type="text" name="TextСommunication" value="" id="inputСommunicationInput"></div>
+                Комментарий:
+                <textarea style=" margin-bottom:20px;"name="text" rows="10%" cols="40%" id="FormTextarea" ></textarea>
+								<input type="hidden" name="order" value="" id="order">
+								<input type="hidden" name="orderNum" value="" id="orderNum">
+								<input type="hidden" name="orderTotalPrice" value="" id="orderTotalPrice">
+								<p class="Content_FormCommunication_Error"> Ошибка: </p>
+                <button onclick="СheckingTheCorrectnessOfTheForm()" class="Content_form_form_but" type="button" name="button" style="margin-bottom:20px;">Отправить</button>
+              </form>
+              </div>
+            </div>
+        </div>
+				
+<!--===================================================================================-->
+      <%- include('blocks/footer.ejs'); %>
+      </div>
+    <script src="../public/scripts/Basket.js"></script>
+          </body>
+          <script>
+      ShowProductsLocalStorage();
+      CalculatingThePrice();
+      let Content_productOne_description_price_input = document.querySelectorAll('.Content_productOne_description_price_input');
+      for (var i = 0; i < Content_productOne_description_price_input.length; i++) {
+        Content_productOne_description_price_input[i].addEventListener('change',function () {
+        CalculatingThePrice();
+      });
+    }
+    CheckEmptinessBasket();
+		const url = new URL(document.location);
+		const searchParams = url.searchParams;
+		searchParams.delete("FIO"); // удалить параметр "FIO"
+		window.history.pushState({}, '', url.toString());
+          </script>
+          	</html>

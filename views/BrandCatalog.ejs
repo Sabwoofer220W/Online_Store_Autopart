@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+			<meta charset="UTF-8">
+		<title>Nurmotors</title>
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleMain.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleHeader.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleContent.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/styleAdaptive.css">
+		<link rel="stylesheet" type="text/css" href="../public/css/PartsCatalogCSS/left-nav-style.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/BrandCatalogCSS/BrandCatalogCSS.css">
+
+		<link rel="icon" href="../public/img/favicon.ico" type="image/x-icon">
+		<script type="text/javascript" src="../public/scripts/MenuView.js"></script>
+  <!--<script type="text/javascript" src="../public/scripts/CreateBrandCatalog.js"></script>-->
+			<meta name="description" content="RadioSAB">
+		</head>
+		<body>
+			<div class="body">
+        <script src="../public/scripts/navbarScroll.js"></script>
+      		<%- include('blocks/navbar.ejs'); %>
+      	<!--============================================================================-->
+      	<%- include('blocks/header.ejs'); %>
+<!--===================================================================================-->
+        <div class="Content">
+					<p class="Content_title"><b>Каталог запчастей по маркам</b></p>
+					<hr align="left" width="100%" size="3" color="#337ab7">
+					<div class="Content_Mark">
+						<%for (var i = 0; i <  MarkAuto.length; i++) {%>
+								<form  id="Content_MarkForm<%= i %>" action="/BrandCatalogOne.ejs" method="GET">
+							<a onclick="document.querySelector('#Content_MarkForm<%= i %>').submit()" class="Content_categories_a">
+								<img class="Content_categories_a_img" src="../public/img/LogoAuto/<%= MarkAuto[i].brandAuto %>.png">
+								<div class="Content_categories_a_textMarkLogo"><%= MarkAuto[i].brandAuto %></div>
+								<input type="text" value="<%= MarkAuto[i].brandAuto %>" name="MarkOneAuto" style="display:none"></input>
+							</a>
+							</form>
+						<%} %>
+
+					</div>
+
+					<hr align="left" width="100%" size="3" color="#337ab7">
+        </div>
+<!--===================================================================================-->
+      <%- include('blocks/footer.ejs'); %>
+      </div>
+      		</body>
+</html>
